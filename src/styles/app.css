@@ -1,0 +1,256 @@
+#app {
+  min-height: 100vh;
+}
+
+.app-loading {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  font-size: 14px;
+  color: #475569;
+}
+
+.app-shell {
+  min-height: 100vh;
+  background: var(--surface);
+}
+
+.app-main {
+  min-height: 100vh;
+  padding-top: 64px;
+}
+
+@media (min-width: 1024px) {
+  .app-main {
+    padding-left: 260px;
+  }
+}
+
+.page-container {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+
+  padding: 24px;
+}
+
+@media (max-width: 640px) {
+  .page-container {
+    padding: 16px;
+  }
+}
+/* =========================================================
+   REKAP PEMBAGIAN - BUKU KIRIMAN MAKANAN
+   ========================================================= */
+
+.distribution-print-area {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.distribution-sheet {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.distribution-print-header {
+  margin-bottom: 16px;
+}
+
+.distribution-print-header h1 {
+  margin: 0;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 800;
+  color: #111827;
+}
+
+.distribution-print-header h2 {
+  margin: 4px 0 16px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #374151;
+}
+
+.distribution-print-header .print-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid #111827;
+  padding-bottom: 8px;
+  font-size: 12px;
+  color: #111827;
+}
+
+.distribution-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.distribution-table th,
+.distribution-table td {
+  border: 1px solid #111827;
+  padding: 7px 8px;
+  font-size: 12px;
+  vertical-align: top;
+}
+
+.distribution-table th {
+  background: #f8fafc;
+  font-weight: 800;
+  text-align: center;
+}
+
+.distribution-table .col-no {
+  width: 7%;
+}
+
+.distribution-table .col-name {
+  width: 22%;
+}
+
+.distribution-table .col-class {
+  width: 12%;
+}
+
+.distribution-table .col-order {
+  width: 47%;
+}
+
+.distribution-table .col-sign {
+  width: 12%;
+}
+
+.distribution-table .name-cell {
+  font-weight: 700;
+}
+
+.distribution-table .order-cell {
+  line-height: 1.6;
+}
+
+.distribution-table .sign-cell {
+  min-height: 55px;
+  height: 55px;
+}
+
+.distribution-page-number {
+  display: none;
+}
+
+
+/* =========================================================
+   PRINT
+   ========================================================= */
+
+@media print {
+
+  @page {
+    size: A4 portrait;
+    margin: 12mm;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+  }
+
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .no-print,
+  aside,
+  nav,
+  header,
+  button {
+    display: none !important;
+  }
+
+  .distribution-print-area {
+    display: block;
+  }
+
+  .distribution-sheet {
+    display: block;
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .distribution-sheet:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  .distribution-print-header {
+    margin-bottom: 10mm;
+  }
+
+  .distribution-print-header h1 {
+    font-size: 16pt;
+  }
+
+  .distribution-print-header h2 {
+    font-size: 11pt;
+    margin-bottom: 7mm;
+  }
+
+  .distribution-print-header .print-meta {
+    font-size: 9pt;
+  }
+
+  .distribution-table th,
+  .distribution-table td {
+    border: 1px solid #000 !important;
+    font-size: 9pt;
+    padding: 5px 6px;
+  }
+
+  .distribution-table th {
+    background: #ffffff !important;
+  }
+
+  .distribution-page-number {
+    display: block;
+    margin-top: 5mm;
+    text-align: right;
+    font-size: 8pt;
+  }
+}
+.distribution-item-line,
+.distribution-check-line {
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+}
+
+.distribution-check-line {
+  justify-content: center;
+}
+
+.distribution-checkbox {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #059669;
+}
+
+.distribution-checkbox:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
